@@ -12,7 +12,7 @@ namespace MiniBanco.ConsoleApp.Models
             if (Tipo != "Saque" && Tipo != "Deposito" && Tipo != "Tarifa")
                 throw new ArgumentException("Tipo de transação inválida.");
             if (Valor <= 0)
-                throw new ArgumentException("Valor precisa ser maior que 0.");
+                throw new ArgumentException("Valor inválido, digite um valor maior que 0.");
 
             this.Tipo = Tipo;
             this.Valor = Valor;

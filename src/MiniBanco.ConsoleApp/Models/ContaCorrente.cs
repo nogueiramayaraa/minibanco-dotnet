@@ -19,7 +19,7 @@ namespace MiniBanco.ConsoleApp.Models
         {
             if (valor > Saldo + LimiteChequeEspecial)
             {
-                throw new SaldoInsuficienteException("Valor insuficiente para saque, considerando também o Cheque Especial");
+                throw new SaldoInsuficienteException("Valor insuficiente para saque, considerando também o Limite de Cheque Especial");
             }
 
             RegistrarTransacao("Saque", "Saque", valor);
