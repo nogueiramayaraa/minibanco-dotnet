@@ -139,8 +139,21 @@ while (menuAtivo)
                 Console.WriteLine("Fechamento aplicado em todas as contas");
 
                 break;
+
+
             case "4":
-                Console.WriteLine("Em construção...");
+
+               if(contas.Count == 0)
+                {
+                    Console.WriteLine("Nenhuma conta cadastrada até o momento.");
+                }
+
+                else
+
+                {
+                    Console.WriteLine("Em Construção");
+                }
+
                 break;
             case "0":
                 menuAtivo = false;
