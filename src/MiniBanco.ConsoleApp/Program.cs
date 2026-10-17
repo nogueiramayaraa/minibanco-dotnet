@@ -70,9 +70,63 @@ while (menuAtivo)
                 Console.WriteLine("Tipo de Conta Inválido. Digite somente as opções apresentadas no Menu");
             }
             break;
+
         case "2":
-            Console.WriteLine("Em construção...");
+
+
+            Console.Write("Número da Conta: ");
+            int buscanumero = int.Parse(Console.ReadLine());
+
+            Conta encontrada = null;
+
+            foreach (Conta c in contas)
+            {
+                if (c.Numero == buscanumero)
+                {
+                    encontrada = c;
+                }
+            }
+
+            if (encontrada == null)
+            {
+                Console.WriteLine("Número da Conta não encontrada.");
+            }
+            else
+
+            {
+                Console.WriteLine("Operação: 1 - Depositar | 2 - Sacar ");
+                string operacao = Console.ReadLine();
+
+                Console.Write("Valor: ");
+                decimal valor = decimal.Parse(Console.ReadLine());
+
+                if (operacao == "1")
+                {
+                    Console.Write("Descrição do Depósito: ");
+                    string descricao = Console.ReadLine();
+
+                    encontrada.Depositar(valor, descricao);
+                    Console.WriteLine("Depósito efetuado com sucesso!");
+                }
+
+                else if (operacao == "2")
+                {
+                    encontrada.Sacar(valor);
+                    Console.WriteLine("Saque efetuado com sucesso!");
+
+                }
+
+                else
+                {
+                    Console.WriteLine("Operação Inválida.");
+                }
+            }
+
+
+
             break;
+
+
         case "3":
             Console.WriteLine("Em construção...");
             break;
