@@ -22,8 +22,8 @@ namespace MiniBanco.ConsoleApp.Services
 
             }
 
- 
-            
+
+
             return pontos;
         }
 
@@ -31,13 +31,32 @@ namespace MiniBanco.ConsoleApp.Services
         {
             int maximo = conta.Extrato.Count * 10;
 
-            if(maximo == 0)
+            if (maximo == 0)
             {
                 return 0;
             }
             int obtidos = AnalisarExtrato(conta);
-            return (double) obtidos/maximo * 100;
-        } 
+            return (double)obtidos / maximo * 100;
+        }
+
+
+        public string ClassificarConta(double percentual)
+        {
+            if (percentual >= 90)
+            {
+                return "Conta Saudável";
+            }
+            else if (percentual >= 60)
+            {
+                return "Conta em Atenção";
+            }
+            else
+            {
+                return "Conta em Risco";
+            }
+
+        }
+
 
     }
 }
