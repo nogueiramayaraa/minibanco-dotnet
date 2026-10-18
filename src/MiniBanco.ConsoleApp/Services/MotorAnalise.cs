@@ -21,8 +21,23 @@ namespace MiniBanco.ConsoleApp.Services
                 }
 
             }
+
+ 
+            
             return pontos;
         }
+
+        public double CalcularIndiceSaude(Conta conta)
+        {
+            int maximo = conta.Extrato.Count * 10;
+
+            if(maximo == 0)
+            {
+                return 0;
+            }
+            int obtidos = AnalisarExtrato(conta);
+            return (double) obtidos/maximo * 100;
+        } 
 
     }
 }
