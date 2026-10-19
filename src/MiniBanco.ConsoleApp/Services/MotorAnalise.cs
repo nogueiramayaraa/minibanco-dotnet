@@ -57,6 +57,31 @@ namespace MiniBanco.ConsoleApp.Services
 
         }
 
+        public void ExibirRelatorio(Conta conta)
+        {
+            Console.WriteLine("> DADOS DA CONTA:");
+
+            if(conta is ContaCorrente cc)
+            {
+                Console.WriteLine(" - Tipo: Conta Corrente");
+                Console.WriteLine(" - Atributo: Limite Cheque Especial: " + "R$ " + cc.LimiteChequeEspecial.ToString("F2"));
+            }
+            else if (conta is ContaPoupanca cp)
+            {
+                Console.WriteLine(" - Tipo: Conta Poupança");
+                Console.WriteLine(" - Atributo: Rendimento: "+cp.TaxaRendimentoMensal+"% ao mês" +" | "+ "Aniversário: dia "+cp.DiaAniversario);
+            }
+
+            else if (conta is ContaSalario cs)
+            {
+                Console.WriteLine(" - Tipo: Conta Salário");
+                Console.WriteLine(" - Atributo: Empregador: "+cs.Empregador+" | Limite de Saques Mensais: "+ cs.LimiteSaquesMensais);
+            }
+
+            Console.WriteLine(" - Titular: "+ conta.Titular +" | "+ "Conta: "+ conta.Numero);
+            Console.WriteLine(" - Saldo Atual: R$ "+conta.Saldo.ToString("F2"));
+        }
+
 
     }
 }
