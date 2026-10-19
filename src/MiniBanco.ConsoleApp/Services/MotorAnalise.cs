@@ -58,10 +58,10 @@ namespace MiniBanco.ConsoleApp.Services
         }
 
         public void ExibirRelatorio(Conta conta)
-        {
+        {//dados da conta
             Console.WriteLine("> DADOS DA CONTA:");
 
-            if(conta is ContaCorrente cc)
+            if (conta is ContaCorrente cc)
             {
                 Console.WriteLine(" - Tipo: Conta Corrente");
                 Console.WriteLine(" - Atributo: Limite Cheque Especial: " + "R$ " + cc.LimiteChequeEspecial.ToString("F2"));
@@ -69,17 +69,50 @@ namespace MiniBanco.ConsoleApp.Services
             else if (conta is ContaPoupanca cp)
             {
                 Console.WriteLine(" - Tipo: Conta Poupança");
-                Console.WriteLine(" - Atributo: Rendimento: "+cp.TaxaRendimentoMensal+"% ao mês" +" | "+ "Aniversário: dia "+cp.DiaAniversario);
+                Console.WriteLine(" - Atributo: Rendimento: " + cp.TaxaRendimentoMensal + "% ao mês" + " | " + "Aniversário: dia " + cp.DiaAniversario);
             }
 
             else if (conta is ContaSalario cs)
             {
                 Console.WriteLine(" - Tipo: Conta Salário");
-                Console.WriteLine(" - Atributo: Empregador: "+cs.Empregador+" | Limite de Saques Mensais: "+ cs.LimiteSaquesMensais);
+                Console.WriteLine(" - Atributo: Empregador: " + cs.Empregador + " | Limite de Saques Mensais: " + cs.LimiteSaquesMensais);
             }
 
-            Console.WriteLine(" - Titular: "+ conta.Titular +" | "+ "Conta: "+ conta.Numero);
-            Console.WriteLine(" - Saldo Atual: R$ "+conta.Saldo.ToString("F2"));
+            Console.WriteLine(" - Titular: " + conta.Titular + " | " + "Conta: " + conta.Numero);
+            Console.WriteLine(" - Saldo Atual: R$ " + conta.Saldo.ToString("F2"));
+
+            //dados de movimentações
+
+            Console.WriteLine();
+            Console.WriteLine("> MOVIMENTAÇÕES REGISTRADAS (" + conta.Extrato.Count + " TRANSAÇÕES):");
+
+            foreach (Transacao t in conta.Extrato)
+            {
+                string status = "";
+                int pontos = 0;
+
+                if (t.Tipo == "Deposito")
+                {
+                    status = "[OK]";
+                    pontos = 10;
+                }
+                else if (t.Tipo == "Saque")
+                {
+                    status = "[ ! ]";
+                    pontos = 5;
+                }
+
+                else if (t.Tipo == "Tarifa")
+                {
+                    status = "[ X ]";
+                    pontos = 0;
+                }
+                Console.WriteLine(" " + status + " " + t.Descricao.PadRight(30, '-') + " " + t.Tipo + ": R$ " + t.Valor.ToString("F2") + " (" + pontos + " pts)");
+            }
+
+
+
+
         }
 
 
