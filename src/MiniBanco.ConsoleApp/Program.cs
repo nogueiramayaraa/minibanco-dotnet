@@ -1,5 +1,6 @@
 ﻿using MiniBanco.ConsoleApp.Exceptions;
 using MiniBanco.ConsoleApp.Models;
+using MiniBanco.ConsoleApp.Services;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -153,7 +154,9 @@ while (menuAtivo)
                 else
 
                 {
-                    Console.WriteLine("Em Construção");
+                    MotorAnalise analise = new MotorAnalise();
+                    foreach(Conta c in contas)
+                    analise.ExibirRelatorio(c);
                 }
 
                 break;
