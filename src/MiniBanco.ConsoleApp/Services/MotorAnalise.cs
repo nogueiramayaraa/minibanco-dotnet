@@ -1,3 +1,4 @@
+using MiniBanco.ConsoleApp.Exceptions;
 using MiniBanco.ConsoleApp.Models;
 
 namespace MiniBanco.ConsoleApp.Services
@@ -127,9 +128,68 @@ namespace MiniBanco.ConsoleApp.Services
             Console.WriteLine("  - Classificação Final: [ " + classificacao.ToUpper() + " ]");
 
 
+            Console.WriteLine();
+            Console.WriteLine("> PENDÊNCIAS E RECOMENDAÇÕES:");
+
+            int qtdTarifas = 0;
+            int qtdSaques = 0;
+
+            foreach (Transacao t in conta.Extrato)
+
+            {
+                if (t.Tipo == "Tarifa")
+                {
+                    qtdTarifas = qtdTarifas + 1;
+                }
+                else if
+                (t.Tipo == "Saque")
+                {
+                    qtdSaques = qtdSaques + 1;
+
+                }
+            }
+
+            if (qtdTarifas == 0 && qtdSaques == 0)
+            {
+                Console.WriteLine("Nenhuma pendência identificada. Oferecer produtos de investimento ao cliente");
+            }
+            else
+            {
+                if (qtdTarifas > 0)
+                {
+                    Console.WriteLine("Itens Críticos(Tarifas):");
+                    foreach (Transacao t in conta.Extrato)
+
+                    {
+                        if (t.Tipo == "Tarifa")
+                        {
+                            Console.WriteLine("  - " + t.Descricao + " Avaliar isenção ou migração para pacote de serviços");
+
+
+                }
+                    }
+
+                }
+
+                if(qtdSaques>0)
+                {
+                    Console.WriteLine(" ITENS DE ATENÇÃO (SAQUES):");
+                    foreach(Transacao t in conta.Extrato)
+                    {
+                        if(t.Tipo == "Saque")
+                        {
+                            Console.WriteLine("   -Saque de R$ " + t.Valor.ToString("F2") + ": Acompanhar a movimentação e entrar em contato com o cliente.");
+                        }}
+                        if(conta is ContaCorrente && conta.Saldo <0)
+                    {
+                        Console.WriteLine("   - Conta usando limite do cheque especial. Entrar em contato com cliente");
+                    }
+                    }
+                }}
+
+
+            }
+
+
 
         }
-
-
-    }
-}
