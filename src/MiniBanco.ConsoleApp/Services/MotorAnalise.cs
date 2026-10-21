@@ -151,13 +151,13 @@ namespace MiniBanco.ConsoleApp.Services
 
             if (qtdTarifas == 0 && qtdSaques == 0)
             {
-                Console.WriteLine("Nenhuma pendência identificada. Oferecer produtos de investimento ao cliente");
+                Console.WriteLine(" 🟢 Nenhuma pendência identificada. Oferecer produtos de investimento ao cliente");
             }
             else
             {
                 if (qtdTarifas > 0)
                 {
-                    Console.WriteLine("Itens Críticos(Tarifas):");
+                    Console.WriteLine(" 🔴 ITENS CRITICOS (TARIFAS):");
                     foreach (Transacao t in conta.Extrato)
 
                     {
@@ -173,7 +173,7 @@ namespace MiniBanco.ConsoleApp.Services
 
                 if(qtdSaques>0)
                 {
-                    Console.WriteLine(" ITENS DE ATENÇÃO (SAQUES):");
+                    Console.WriteLine(" 🟡 ITENS DE ATENÇÃO (SAQUES):");
                     foreach(Transacao t in conta.Extrato)
                     {
                         if(t.Tipo == "Saque")

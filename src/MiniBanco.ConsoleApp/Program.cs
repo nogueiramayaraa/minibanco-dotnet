@@ -1,6 +1,8 @@
 ﻿using MiniBanco.ConsoleApp.Exceptions;
 using MiniBanco.ConsoleApp.Models;
 
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
 List<Conta> contas = new List<Conta>();
 bool menuAtivo = true;
 
