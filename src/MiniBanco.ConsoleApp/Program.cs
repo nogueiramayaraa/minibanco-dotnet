@@ -145,7 +145,7 @@ while (menuAtivo)
 
                if(contas.Count == 0)
                 {
-                    Console.WriteLine("Nenhuma conta cadastrada até o momento.");
+                    Console.WriteLine("Nenhuma conta aberta até o momento.");
                 }
 
                 else

@@ -108,8 +108,23 @@ namespace MiniBanco.ConsoleApp.Services
                     pontos = 0;
                 }
                 Console.WriteLine(" " + status + " " + t.Descricao.PadRight(30, '-') + " " + t.Tipo + ": R$ " + t.Valor.ToString("F2") + " (" + pontos + " pts)");
+
+
             }
 
+
+
+            Console.WriteLine();
+            Console.WriteLine("> RESUMO DA PONTUAÇÃO:");
+
+            int pontosobtidos = AnalisarExtrato(conta);
+            int pontuacaomaxima = conta.Extrato.Count * 10;
+            double saudedaconta = CalcularIndiceSaude(conta);
+            string classificacao = ClassificarConta(saudedaconta);
+
+            Console.WriteLine("  - Pontuação Atingida: " + pontosobtidos + " de " + pontuacaomaxima + " pontos possíveis");
+            Console.WriteLine("  - Índice de Saúde: " + saudedaconta.ToString("F1") + "%");
+            Console.WriteLine("  - Classificação Final: [ " + classificacao.ToUpper() + " ]");
 
 
 
