@@ -1,5 +1,8 @@
 ﻿using MiniBanco.ConsoleApp.Exceptions;
 using MiniBanco.ConsoleApp.Models;
+using MiniBanco.ConsoleApp.Services;
+
+Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 List<Conta> contas = new List<Conta>();
 bool menuAtivo = true;
@@ -145,13 +148,15 @@ while (menuAtivo)
 
                if(contas.Count == 0)
                 {
-                    Console.WriteLine("Nenhuma conta cadastrada até o momento.");
+                    Console.WriteLine("Nenhuma conta aberta até o momento.");
                 }
 
                 else
 
                 {
-                    Console.WriteLine("Em Construção");
+                    MotorAnalise analise = new MotorAnalise();
+                    foreach(Conta c in contas)
+                    analise.ExibirRelatorio(c);
                 }
 
                 break;
