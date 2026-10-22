@@ -1,4 +1,4 @@
-# MiniBanco.ConsoleApp: Motor de Gestão de Contas Bancárias
+# Motor de Gestão de Contas Bancárias
 
 ## Identificação
 - **Aluna:** Mayara Nogueira Moreira
