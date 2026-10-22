@@ -1,9 +1,9 @@
-# MiniBanco.ConsoleApp: Motor de Gestão de Contas Bancárias
+# Motor de Gestão de Contas Bancárias
 
 ## Identificação
 - **Aluna:** Mayara Nogueira Moreira
 - **Curso:** Desenvolvedor Back-End [.Net]
-- **Atividade:** Mini-Projeto Avaliativo – Módulo 2 
+- **Atividade:** Mini-Projeto Avaliativo – MiniBanco
 
 ## Objetivo
 Aplicação de console em C# que simula o motor de gestão de contas de um banco digital. O sistema permite abrir contas de três tipos (Corrente, Poupança e Salário), registrar depósitos e saques, aplicar o fechamento mensal de acordo com as regras de cada tipo e gerar um relatório com a pontuação, o índice de saúde financeira, a classificação da conta e as recomendações para a gerência.
