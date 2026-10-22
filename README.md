@@ -120,6 +120,7 @@ O trabalho foi dividido em branches, cada uma integrada à `main` por pull reque
 - Não há validação de número de conta duplicado na abertura.
 
 ## Vídeo de Apresentação
+https://www.youtube.com/watch?v=JIlJL2GMO5w
 
 
 
